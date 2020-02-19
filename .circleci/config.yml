@@ -7,7 +7,6 @@ jobs:
       - checkout
       - run:
           name: The First Step
-          command: |
-            ci/build-app.sh 
+          command: ci/build-app.sh 
       - store_test_results:
-        path: test-results
+          path: test-results
