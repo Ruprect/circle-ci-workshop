@@ -6,9 +6,9 @@ jobs:
     steps:
       - checkout
       - persist_to_workspace
-        root: .
-        paths:
-          - .
+          root: .
+          paths:
+            - .
   test:
     docker:
       - image: gradle:jdk11
@@ -22,7 +22,7 @@ jobs:
       - store_test_results:
           path: app/build/test-results
       - attach_workspace:
-        at: .
+          at: .
   build:
     docker:
       - image: gradle:jdk11
@@ -37,7 +37,7 @@ jobs:
           path: app/build/libs
           destination: prefix
       - attach_workspace:
-        at: .
+          at: .
 
 workflows:
   version: 2
