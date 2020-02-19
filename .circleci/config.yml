@@ -38,7 +38,6 @@ jobs:
           destination: prefix
       - attach_workspace:
           at: .
-
 workflows:
   version: 2
   two_job_flow:
