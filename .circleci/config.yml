@@ -9,3 +9,5 @@ jobs:
           name: The First Step
           command: |
             ci/build-app.sh 
+      - store_test_results:
+        path: test-results
