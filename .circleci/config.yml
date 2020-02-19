@@ -8,5 +8,8 @@ jobs:
       - run:
           name: The First Step
           command: ci/build-app.sh 
+      - run:
+          name: Do the testing
+          command: ci/unit-test-app.sh
       - store_test_results:
-          path: app/build/test-results
+          path: /app/build/test-results
