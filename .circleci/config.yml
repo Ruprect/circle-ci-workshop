@@ -1,31 +1,30 @@
 workflows:
   version: 2.0
   two_job_flow:
-    jobs:
-      test:
-        docker:
-          - image: gradle:jdk11
-        steps:
-          - checkout
-          - run:
-              name: The First Step
-              command: ci/build-app.sh 
-          - run:
-              name: Do the testing
-              command: ci/unit-test-app.sh
-          - store_test_results:
-              path: app/build/test-results
-      build:
-        docker:
-          - image: gradle:jdk11
-        steps:
-          - checkout
-          - run:
-              name: The First Step
-              command: ci/build-app.sh 
-          - run:
-              name: Do the testing
-              command: ci/unit-test-app.sh
-          - store_artifacts:
-              path: app/build/libs
-              destination: prefix
+    test:
+      docker:
+        - image: gradle:jdk11
+      steps:
+        - checkout
+        - run:
+            name: The First Step
+            command: ci/build-app.sh 
+        - run:
+            name: Do the testing
+            command: ci/unit-test-app.sh
+        - store_test_results:
+            path: app/build/test-results
+    build:
+      docker:
+        - image: gradle:jdk11
+      steps:
+        - checkout
+        - run:
+            name: The First Step
+            command: ci/build-app.sh 
+        - run:
+            name: Do the testing
+            command: ci/unit-test-app.sh
+        - store_artifacts:
+            path: app/build/libs
+            destination: prefix
